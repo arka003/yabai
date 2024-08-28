@@ -74,8 +74,13 @@ yabai -m rule --add app="^AppCleaner$" manage=off
 yabai -m rule --add app="^Dictionary$" manage=off
 yabai -m rule --add app="^Cisco Packet Tracer$" manage=off
 yabai -m rule --add app="^Installer$" manage=off
-yabai -m rule --add app="^Finder$" title="^Finder Settings$" sticky=on manage=off
-yabai -m rule --add title="(Copy|About This Mac|Info)" manage=off
+yabai -m rule --add \
+         label="Finder floating" \
+         app="^Finder$" \
+         title="(Copy|Connect|Move|Info|Finder Settings)" \
+         manage=off
+
+yabai -m rule --add title="(Copy|Bin|About This Mac|Info)" manage=off
 yabai -m rule --add label="Firfox PIP" app="^Firefox$" title="^(Picture-in-Picture)$" manage=off
 yabai -m rule --add title="^Picture in Picture$" manage=off mouse_follows_focus=off
 
