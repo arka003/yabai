@@ -5,11 +5,11 @@ yabai -m config layout bsp
 yabai -m config window_placement second_child
 
 # padding
-yabai -m config top_padding 2
-yabai -m config bottom_padding 5
-yabai -m config left_padding 5
-yabai -m config right_padding 5
-yabai -m config window_gap 4
+yabai -m config top_padding 9
+yabai -m config bottom_padding 10
+yabai -m config left_padding 10
+yabai -m config right_padding 10
+yabai -m config window_gap 10
 
 # center mouse on window with focus
 # yabai -m config mouse_follows_focus on
@@ -27,18 +27,22 @@ yabai -m mouse_drop_action swap
 JB_Apps='^(CLion|PyCharm|IntelliJ IDEA)$'
 yabai -m rule --add app="${JB_Apps}" manage=off
 # If `Open last project when launch` is checked, add this rule. And make sure `always show project path` is also checked.
-# yabai -m rule --add app="${JB_Apps}" title=".*\[.*\].*" manage=on 
+yabai -m rule --add app="${JB_Apps}" title=".*\[.*\].*" manage=on 
 yabai -m rule --add app="${JB_Apps}" title="^$"  manage=on
 yabai -m rule --add app="VMware Fusion" manage=off
 yabai -m rule --add app="^Safari$" title="^(General|Tabs|Autofill|Passwords|Search|Security|Privacy|Websites|Profiles|Extensions|Advanced|)$" manage=off layer=above
 yabai -m rule --add app="^Stickies$" manage=off
 yabai -m rule --add app="^Boot Camp Assistant$" manage=off
+yabai -m rule --add app="^balenaEtcher$" manage=off
 yabai -m rule --add app="^VoiceOver Utility$" manage=off
 yabai -m rule --add app="^Pearcleaner$" manage=off
+yabai -m rule --add app="^iPhone Mirroring$" manage=off
+yabai -m rule --add app="^Barrier$" manage=off
 yabai -m rule --add app="^Calendar$" manage=off
 yabai -m rule --add app="^QuickTime Player$" manage=off
 yabai -m rule --add app="^uad_gui-macos$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^AdGaurd for Safari$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^Bitwarden$" manage=off
@@ -46,6 +50,7 @@ yabai -m rule --add app="Messages" manage=off
 yabai -m rule --add app="Signal" manage=off
 yabai -m rule --add app="WhatsApp" manage=off
 yabai -m rule --add app="Zoom Workplace" manage=off
+yabai -m rule --add app="zoom.us" manage=off
 yabai -m rule --add app="^ProtonVPN$" manage=off
 yabai -m rule --add app="^Photo Booth$" manage=off
 yabai -m rule --add app="^App Store$" manage=off
@@ -54,6 +59,7 @@ yabai -m rule --add app="^Clock$" manage=off
 yabai -m rule --add app="^FaceTime$" manage=off
 yabai -m rule --add app="^Photos$" manage=off
 yabai -m rule --add app="Music" manage=off
+yabai -m rule --add app="Telegram" manage=off
 yabai -m rule --add app="^Podcasts$" manage=off
 yabai -m rule --add app="^TV$" manage=off
 yabai -m rule --add app="^Voice Memos$" manage=off
@@ -63,12 +69,11 @@ yabai -m rule --add app="^Disk Utility$" manage=off
 yabai -m rule --add app="^Digital Colour Meter$" manage=off
 yabai -m rule --add app="^Find My$" manage=off
 yabai -m rule --add app="^Stocks$" manage=off
-yabai -m rule --add app="^Spotify$" manage=off
+#  yabai -m rule --add app="^Spotify$" manage=off
 yabai -m rule --add app="^Books$" manage=off
 yabai -m rule --add app="^Home$" manage=off
 yabai -m rule --add app="^Mail$" manage=off
 yabai -m rule --add app="^Contacts$" manage=off
-yabai -m rule --add app="^Spotify$" manage=off
 yabai -m rule --add app="^System Information$" manage=off
 yabai -m rule --add app="^AppCleaner$" manage=off
 yabai -m rule --add app="^Dictionary$" manage=off
@@ -85,4 +90,10 @@ yabai -m rule --add label="Firfox PIP" app="^Firefox$" title="^(Picture-in-Pictu
 yabai -m rule --add title="^Picture in Picture$" manage=off mouse_follows_focus=off
 
 yabai -m signal --add app='Firefox' event='window_title_changed' \
-  action="yabai -m rule --apply app='Firefox' title='Bitwarden' manage=off grid=12:12:4:4:4:4"
+  action="yabai -m rule --apply app='Firefox' title='Bitwarden' manage=off grid=10:4:3:3:6:6"
+
+yabai -m signal --add app='Brave' event='window_title_changed' \
+    action="yabai -m rule --apply app='Brave' title='Bitwarden' manage=off grid=10:4:3:3:6:6"
+
+yabai -m signal --add app='Safari' event='window_title_changed' \
+    action="yabai -m rule --apply app='Safari' title='Bitwarden' manage=off grid=10:4:3:3:6:6"
